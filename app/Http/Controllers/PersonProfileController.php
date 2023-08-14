@@ -9,7 +9,7 @@ class PersonProfileController extends Controller
 {
     public function index(Request $request)
     {
-        // query string key is profile_ids
+        // query string key is profile_ids, which is contain the profile id's array
         $profile_ids = $request->profile_ids;
 
         $profiles = PersonProfile::whereNotIn('id', json_decode($profile_ids))->paginate(3);
